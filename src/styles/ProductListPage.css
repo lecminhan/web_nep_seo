@@ -1,0 +1,169 @@
+/* ---------- Layout Container ---------- */
+.custom-product-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* ---------- Sidebar (no background, no border-radius) ---------- */
+.custom-sidebar {
+  width: 250px;
+  padding: 16px;
+  padding-top: 0;
+}
+
+.custom-sidebar-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #222;
+  font-weight: 600;
+  border-left: 4px solid #1976d2;
+  padding-left: 10px;
+}
+
+.custom-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-sidebar-list li {
+  margin-bottom: 8px;
+}
+
+.custom-sidebar-list a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.custom-sidebar-list a:hover,
+.custom-sidebar-list a:focus {
+  color: #1976d2;
+  text-decoration: underline;
+}
+
+/* ---------- Main Product Content ---------- */
+.custom-product-content {
+  flex: 1;
+  min-width: 600px;
+}
+
+.custom-section-title {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #222;
+  font-weight: 700;
+}
+
+/* ---------- Product Grid ---------- */
+.custom-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* ---------- Product Card ---------- */
+.custom-product-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding-bottom: 24px; /* ✅ Thêm padding dưới */
+  transition: transform 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: none; /* ✅ Bỏ bóng */
+}
+
+.custom-product-card:hover {
+  transform: scale(1.02); /* ✅ Phóng to nhẹ khi hover */
+}
+
+/* ---------- Square Image ---------- */
+.custom-product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: #f5f5f5;
+  border-radius: 0;
+}
+
+/* ---------- Product Info ---------- */
+.custom-product-info {
+  text-align: center;
+}
+
+.custom-product-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin:0
+}
+
+.custom-product-rating {
+  color: #ffcc00;
+  font-size: 16px;
+  margin: 4px 0;
+  letter-spacing: 1px;
+}
+
+.custom-product-price {
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* ---------- CTA Button ---------- */
+.custom-quote-button {
+  background-color: #d71920;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-quote-button:hover,
+.custom-quote-button:focus {
+  background-color: #b51217;
+  outline: none;
+}
+.custom-section-title-wrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 19px 0;
+}
+
+.custom-section-title-wrapper .line {
+  flex: 1;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.custom-section-title {
+  color: #d71920;
+  margin: 0 20px;
+  padding: 10px 20px;
+  border: 1px solid #e0e0e0;
+  font-weight: bold;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.custom-category-description {
+  text-align: justify;
+  line-height: 1.8; /* hoặc 1.6–2 tùy bạn muốn giãn dòng bao nhiêu */
+  font-size: 16px;  /* tùy chỉnh nếu cần */
+  margin-top: 20px;
+  color: #333; /* màu chữ nhẹ nhàng, dễ đọc */
+}

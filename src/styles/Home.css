@@ -1,0 +1,21 @@
+.homepage-banner-section {
+  width: 100%;
+  padding: 15px; /* không padding ngoài cùng */
+}
+
+.homepage-banner-container {
+  max-width: 1300px;      /* không tràn ra ngoài */
+  margin: 0 auto;         /* căn giữa container */
+  padding: 0 24px;        /* padding 2 bên đều nhau */
+  box-sizing: border-box; /* tránh overflow khi có padding */
+}
+
+.homepage-banner-image {
+  display: block;
+  width: 100%;            /* full trong container */
+  height: auto;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

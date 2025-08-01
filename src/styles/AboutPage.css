@@ -1,0 +1,146 @@
+/* Mượt khi click anchor */
+html {
+  scroll-behavior: smooth;
+}
+
+.about-page {
+  background: #fff;
+  min-height: 100vh;
+}
+
+.about-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  gap: 30px;
+  padding-top: 0;
+}
+
+.about-main {
+  flex: 3;              /* 3/4 */
+  min-width: 260px;
+}
+
+.about-sidebar {
+  flex: 1;              /* 1/4 */
+  min-width: 240px;
+}
+
+/* Nội dung */
+.about-content h1 {
+  color: #d82a1b;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+.about-content h2 {
+  color: #d82a1b;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 28px 0 12px;
+}
+
+.about-content p {
+  line-height: 1.8;
+  margin-bottom: 14px;
+  text-align: justify;
+  color: #222;
+}
+
+.about-content ul {
+  margin-left: 20px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.about-content a {
+  color: #d82a1b;
+  text-decoration: none;
+}
+.about-content a:hover { text-decoration: underline; }
+
+.about-image {
+  width: 100%;
+  border-radius: 8px;
+  margin: 16px 0;
+  object-fit: cover;
+  max-height: 460px;
+}
+
+/* --- Table of Contents --- */
+.toc {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  background: #fafafa;
+}
+
+.toc-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d82a1b;
+  margin: 0 0 10px;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item + .toc-item { margin-top: 8px; }
+
+.toc a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  line-height: 1.6;
+}
+
+.toc a:hover {
+  color: #d82a1b;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .about-content h1 { font-size: 2rem; }
+  .about-content h2 { font-size: 1.35rem; }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .about-main,
+  .about-sidebar {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+  .toc { margin-bottom: 18px; }
+}
+.product-list {
+  margin-left: 20px;
+  list-style: disc;
+}
+
+.product-list li {
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.product-list .product-img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 10px 0;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
