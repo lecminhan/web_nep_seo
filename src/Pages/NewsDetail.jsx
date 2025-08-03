@@ -50,11 +50,44 @@ const NewsDetail = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{newsData.title} | Tin tức</title>
-        <meta name="description" content={newsData.content[0]?.paragraph_text.slice(0, 150)} />
-      </Helmet>
-
+  <Helmet>
+  <title>{newsData.title} | Tin tức</title>
+  <meta name="description" content={newsData.content[0]?.paragraph_text.slice(0, 160)} />
+  <meta name="keywords" content="nẹp inox, nẹp nhôm, nẹp trang trí, tin tức vật liệu xây dựng, ứng dụng nẹp nội thất, Luxinox" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content={newsData.title} />
+  <meta property="og:description" content={newsData.content[0]?.paragraph_text.slice(0, 160)} />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content={newsData.content.find(c => c.image_url)?.image_url || "/default-thumbnail.jpg"} />
+  <meta property="og:url" content={`https://nepdanang.vn/news/${slug}`} />
+  <link rel="canonical" href={`https://nepdanang.vn/news/${slug}`} />
+  </Helmet>
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Trang chủ",
+        item: "https://nepdanang.vn"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Tin tức",
+        item: "https://nepdanang.vn/tin-tuc"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: newsData.title,
+        item: `https://nepdanang.vn/news/${slug}`
+      }
+    ]
+  })}
+</script>
       <TopBar />
       <Header />
       <Navbar />
@@ -96,37 +129,44 @@ const NewsDetail = () => {
             const sectionId = `section-${index}`;
 
             return (
-              <section key={section.content_id || sectionId} style={{ marginBottom: 40 }}>
-                {isTitled && (
-                  <h2 style={{ fontSize: "20px", marginBottom: 10, fontWeight: "bold", color: "#d71920" }}>
-                    {romanNumerals[index] || index + 1}. {section.paragraph_title}
-                  </h2>
-                )}
-                <p
-                  style={{
-                    fontSize: 16,
-                    lineHeight: 1.7,
-                    whiteSpace: "pre-line",
-                    textAlign: "justify",
-                    color: "#333",
-                  }}
-                >
-                  {section.paragraph_text}
-                </p>
-                {section.image_url && (
-                  <img
-                    src={section.image_url}
-                    alt={section.paragraph_title || `Ảnh minh họa ${index + 1}`}
-                    style={{
-                      width: "100%",
-                      marginTop: 15,
-                      borderRadius: 5,
-                      objectFit: "cover",
-                    }}
-                    loading="lazy"
-                  />
-                )}
-              </section>
+             <section key={section.content_id || sectionId} style={{ marginBottom: 40 }}>
+  {isTitled && (
+    <h2 style={{ fontSize: "20px", marginBottom: 10, fontWeight: "bold", color: "#d71920" }}>
+      {romanNumerals[index] || index + 1}. {section.paragraph_title}
+    </h2>
+  )}
+
+  <div
+    style={{
+      fontSize: 16,
+      lineHeight: 1.7,
+      whiteSpace: "pre-line",
+      textAlign: "justify",
+      color: "#333",
+    }}
+    dangerouslySetInnerHTML={{ __html: section.paragraph_text }}
+  />
+
+  {section.image_url && (
+  <figure style={{ marginTop: 15 }}>
+    <img
+      src={section.image_url}
+      alt={section.paragraph_title || `Ảnh minh họa ${index + 1}`}
+      style={{
+        width: "100%",
+        borderRadius: 5,
+        objectFit: "cover",
+      }}
+      loading="lazy"
+    />
+    <figcaption style={{ fontSize: 14, color: "#666", marginTop: 5, fontStyle: "italic", textAlign: "center" }}>
+      {section.paragraph_title || `Hình ảnh minh họa`}
+    </figcaption>
+  </figure>
+)}
+
+</section>
+
             );
           })}
         </article>

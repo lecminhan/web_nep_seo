@@ -38,17 +38,8 @@ const TopBar = () => {
           }}
         >
           {/* ✅ Thay nội dung tại đây */}
-        <IconButton
-  component="a"
-  href="https://www.facebook.com/nepinoxdanang"
-  target="_blank"
-  rel="noopener"
-  size="small"
-  title="Facebook Page"
-  sx={{ color: '#333' }}
->
-  <FaFacebookF />
-</IconButton>
+        <Box>
+</Box>
 
         </Box>
 

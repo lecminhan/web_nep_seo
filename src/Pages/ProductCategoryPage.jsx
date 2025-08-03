@@ -49,20 +49,56 @@ const ProductCategoryPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{`Danh mục ${currentCategory.name} - Nẹp luxinox`}</title>
-        <meta
-          name="description"
-          content={`Khám phá các sản phẩm thuộc danh mục ${currentCategory.name}. Đầy đủ mẫu mã, chất lượng cao, giá cả cạnh tranh.`}
-        />
-        <link rel="canonical" href={`https://www.yourwebsite.com/san-pham/${parentSlug}`} />
-        <meta property="og:title" content={`Danh mục ${currentCategory.name}`} />
-        <meta property="og:description" content={currentCategory.description?.substring(0, 150)} />
-        <meta property="og:type" content="website" />
-        {currentCategory.image_url && (
-          <meta property="og:image" content={`https://www.yourwebsite.com/images/${currentCategory.image_url}`} />
-        )}
-      </Helmet>
+   <Helmet>
+  <title>{`Danh mục ${currentCategory.name} - Nẹp Luxinox Đà Nẵng`}</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Luxinox Đà Nẵng" />
+  <meta name="keywords" content={`nẹp ${currentCategory.name.toLowerCase()}, phụ kiện nẹp, nẹp trang trí, nẹp nhôm, nẹp inox`} />
+  <meta
+    name="description"
+    content={`Khám phá các sản phẩm trong danh mục ${currentCategory.name} tại Luxinox Đà Nẵng. Sản phẩm chất lượng cao, giá tốt, đa dạng mẫu mã.`}
+  />
+  <link rel="canonical" href={`https://nepdanang.vn/san-pham/${parentSlug}`} />
+
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:site_name" content="Luxinox Đà Nẵng" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={`Danh mục ${currentCategory.name} - Nẹp Luxinox Đà Nẵng`} />
+  <meta property="og:description" content={currentCategory.description?.substring(0, 150)} />
+  <meta property="og:url" content={`https://nepdanang.vn/san-pham/${parentSlug}`} />
+  {currentCategory.image_url && (
+    <meta property="og:image" content={`https://nepdanang.vn/images/${currentCategory.image_url}`} />
+  )}
+
+  {/* Breadcrumb Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Trang chủ",
+          item: "https://nepdanang.vn"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Sản phẩm",
+          item: "https://nepdanang.vn/san-pham"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: currentCategory?.name || "",
+          item: `https://nepdanang.vn/san-pham/${parentSlug}`
+        }
+      ]
+    })}
+  </script>
+</Helmet>
+
 
       <TopBar />
       <Header />
@@ -83,14 +119,14 @@ const ProductCategoryPage = () => {
         <main className="main-content" role="main">
           <section>
             <div  style={{ display: "flex", alignItems: "center", textAlign: "center", margin: "20px 0"}}>
-              <div style={{ flex: 1, height: "1px", backgroundColor: "#e0e0e0" }}></div>
+              <div className= 'pcp-title' style={{ flex: 1, height: "1px", backgroundColor: "#e0e0e0" }}></div>
               <h1 style={{
                 color: "#d71920",
                 margin: "0 20px",
                 padding: "10px 20px",
                 border: "1px solid #e0e0e0",
                 fontWeight: "bold",
-                fontSize: "24px",
+                fontSize: "22px",
                 whiteSpace: "nowrap"
               }}>
                 GIỚI THIỆU VỀ {currentCategory.name.toUpperCase()}
@@ -98,23 +134,24 @@ const ProductCategoryPage = () => {
               <div style={{ flex: 1, height: "1px", backgroundColor: "#e0e0e0" }}></div>
             </div>
 
-            {currentCategory.description && (
-              <p style={{
-                textAlign: "justify",
-                color: "#000",
-                fontSize: "16px",
-                lineHeight: 1.6,
-                maxWidth: 900,
-                margin: "0 auto"
-              }}>
-                {currentCategory.description}
-              </p>
-            )}
+         {currentCategory.description && (
+  <p
+    style={{
+      textAlign: "justify",
+      color: "#000",
+      fontSize: "16px",
+      lineHeight: 1.6,
+      maxWidth: 900,
+      margin: "0 auto"
+    }}
+    dangerouslySetInnerHTML={{ __html: currentCategory.description }}
+  />
+)}
 
             {currentCategory.image_url && (
               <div style={{ textAlign: "center", marginTop: 20 }}>
                 <img
-                  src={`/images/${currentCategory.image_url}`}
+                  src={`https://nepdanang.vn/uploads/${currentCategory.image_url}`}
                   alt={`Hình ảnh danh mục ${currentCategory.name}`}
                   title={`Hình ảnh danh mục ${currentCategory.name}`}
                   style={{ maxWidth: "100%", height: "auto", border: "1px solid #ccc", padding: 8 }}
@@ -132,7 +169,7 @@ const ProductCategoryPage = () => {
                 padding: "10px 20px",
                 border: "1px solid #e0e0e0",
                 fontWeight: "bold",
-                fontSize: "24px",
+                fontSize: "20px",
                 whiteSpace: "nowrap"
               }}>
                 DANH MỤC {currentCategory.name.toUpperCase()}
@@ -169,10 +206,8 @@ const ProductCategoryPage = () => {
     Xem tất cả &raquo;
   </Link>
 </div>
-
-
            <div className="card-grid">
-  {(childCategory.products || []).map((product) => (
+  {(childCategory.products || []).slice(0, 6).map((product) => (
     <article className="card" key={product.id} aria-label={`Sản phẩm ${product.name}`}>
       <Link
         to={`/san-pham/${parentSlug}/${childCategory.slug}/${product.slug}`}

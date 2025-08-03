@@ -8,15 +8,17 @@ import Footer from "../Components/global/footer";
 import ContactButtons from "../Components/global/contactbutton";
 import RecentPostsSidebar from "../Components/RecentPostsSidebar";
 import "../styles/AboutPage.css";
-
+import { Helmet } from "react-helmet";
 /** --- Table of Contents (Mục lục) --- */
 const TableOfContents = memo(() => {
-  const items = [
-    { id: "products", text: "I. Danh mục sản phẩm nẹp trang trí của Nẹp Luxinox" },
-    { id: "experience", text: "II. Kinh nghiệm và năng lực vượt trội" },
-    { id: "commitments", text: "III. Cam kết chất lượng từ Nẹp Luxinox" },
-  ];
-
+const items = [
+  { id: "gioi-thieu", text: "Giới thiệu về LuxInox" },
+  { id: "danh-muc", text: "Danh mục nẹp nổi bật" },
+  { id: "vi-sao", text: "Vì sao chọn LuxInox?" },
+  { id: "ung-dung", text: "Ứng dụng thực tế" },
+  { id: "danh-gia", text: "Đánh giá khách hàng" },
+  { id: "lien-he", text: "Kết nối với LuxInox" },
+];
   const onClick = (e, id) => {
     e.preventDefault();
     const el = document.getElementById(id);
@@ -42,92 +44,116 @@ const TableOfContents = memo(() => {
 /** --- Nội dung chính --- */
 const AboutContent = memo(() => (
   <div className="about-content">
-    <h1>Giới thiệu về Nẹp Luxinox - Đơn vị cung cấp nẹp trang trí hàng đầu Việt Nam</h1>
+  <h1 id="gioi-thieu">
+    TỔNG KHO NẸP NHÔM - NẸP INOX TRANG TRÍ NỘI THẤT LUXINOX – GIẢI PHÁP TOÀN DIỆN CHO CÔNG TRÌNH TẠI ĐÀ NẴNG
+  </h1>
 
-    <p>
-      <strong>Nẹp Luxinox</strong> là một trong những thương hiệu uy tín hàng đầu tại Việt Nam trong lĩnh vực 
-      <strong> cung cấp nẹp trang trí nội thất và xây dựng</strong>. Chúng tôi xin gửi lời cảm ơn sâu sắc đến Quý Khách Hàng đã luôn 
-      đồng hành và tin tưởng sử dụng các sản phẩm chất lượng cao của chúng tôi trong suốt nhiều năm qua.
-    </p>
+  <p>
+   Nếu bạn đang tìm nẹp trang trí nội thất tại Đà Nẵng, cần nẹp nhôm chất lượng, nẹp inox thẩm mỹ cao, hãy đến ngay tổng kho LuxInox. Giải pháp đồng bộ – sản phẩm đạt chuẩn – hỗ trợ thi công là lý do khiến LuxInox trở thành lựa chọn hàng đầu của giới thi công nội thất tại miền Trung.
+  </p>
 
-    <p>
-      Một không gian sống hoàn hảo không chỉ đến từ kiến trúc tổng thể hay nội thất cao cấp, mà còn từ những chi tiết nhỏ nhưng 
-      quan trọng như <strong>nẹp trang trí</strong>. Những đường nẹp sắc sảo không chỉ bảo vệ các mép tường, sàn, 
-      góc cạnh mà còn góp phần tạo điểm nhấn thẩm mỹ, nâng tầm giá trị cho công trình. 
-      Chính vì vậy, <strong>Nẹp Luxinox</strong> đã không ngừng cải tiến để mang đến các giải pháp nẹp tối ưu nhất.
-    </p>
+  <p>
+    ✨ <strong>LuxInox</strong> là tổng kho chuyên cung cấp nẹp nhôm, nẹp inox, nẹp trang trí nội thất tại Đà Nẵng, đáp ứng nhanh nhu cầu vật tư hoàn thiện cho hàng trăm công trình lớn nhỏ trên địa bàn. Đa dạng mẫu mã – sẵn hàng số lượng lớn – hỗ trợ thi công tận nơi.
+  </p>
 
+  <h2 id="gioi-thieu">🏢 LuxInox – Tổng kho nẹp nội thất hàng đầu tại Đà Nẵng</h2>
+  <p>
+    Tọa lạc ngay trung tâm Đà Nẵng, LuxInox xây dựng hệ thống phân phối vật tư nẹp trang trí nội thất với kho hàng quy mô, đáp ứng tức thì các dòng nẹp dùng trong thi công nội thất, xây dựng hoàn thiện, từ nhà dân, căn hộ, khách sạn đến showroom và resort cao cấp.
+  </p>
+  <p>
+    LuxInox cung cấp hơn 200 mẫu nẹp nhôm, nẹp inox, nẹp kỹ thuật, với thiết kế chuẩn kích thước, độ dày, màu sắc, đạt tiêu chuẩn thi công chuyên nghiệp.
+  </p>
     <img
       src="/images/slide1.jpg"
       alt="Showroom Nẹp Luxinox trưng bày các mẫu nẹp trang trí nội thất cao cấp"
       className="about-image"
       loading="lazy"
     />
+  <h2  id="danh-muc">📦 Danh mục nẹp nổi bật tại LuxInox</h2>
+  <ul>
+    <li>✅ Nẹp nhôm: T, L, U, V – mạ anode cao cấp, chịu lực tốt, không phai màu.</li>
+    <li>✅ Nẹp inox 304: mạ PVD màu vàng bóng, vàng xước, đen gương, inox mờ…</li>
+    <li>✅ Nẹp bo cạnh – chống trượt – khe giãn: dùng cho cầu thang, nền sàn, viền gạch.</li>
+    <li>✅ Nẹp đèn LED – nẹp viền gỗ – nẹp vách: ứng dụng trong showroom, khách sạn.</li>
+    <li>✅ Nẹp theo yêu cầu: cắt theo bản vẽ, mạ màu theo thiết kế.</li>
+  </ul>
 
-    <p>
-      Với sứ mệnh mang lại sự hoàn hảo cho từng chi tiết công trình, <strong>Nẹp Luxinox</strong> tập trung vào:
-    </p>
-    <ul>
-      <li>Sản xuất và phân phối <strong>nẹp trang trí chất lượng cao</strong> đáp ứng tiêu chuẩn quốc tế.</li>
-      <li>Tối ưu hóa quá trình thi công với các mẫu nẹp dễ lắp đặt, tiết kiệm thời gian và chi phí.</li>
-      <li>Bảo vệ môi trường bằng việc sử dụng nguyên liệu thân thiện và giảm thiểu chất thải.</li>
-      <li>Đa dạng mẫu mã, kích thước, màu sắc cho dự án dân dụng & cao cấp.</li>
-    </ul>
+  <h2 id="vi-sao">💡 Vì sao LuxInox được thợ thi công và công trình Đà Nẵng lựa chọn?</h2>
+  <ul>
+    <li>🔹 Sản phẩm chất lượng chuẩn thi công nội thất</li>
+    <li>🔹 Kho sẵn hàng số lượng lớn – giao ngay trong ngày</li>
+    <li>🔹 Hỗ trợ tư vấn vật tư từ bản vẽ kỹ thuật</li>
+    <li>🔹 Giá sỉ tốt – chính sách chiết khấu rõ ràng cho xưởng & thầu</li>
+    <li>🔹 Chế độ bảo hành màu và bề mặt nẹp</li>
+  </ul>
 
-    <h2 id="products">I. Danh mục sản phẩm nẹp trang trí của Nẹp Luxinox</h2>
-    <p>
-      Hiện tại, <strong>Nẹp Luxinox</strong> cung cấp đầy đủ các dòng <strong>nẹp trang trí nội thất và xây dựng</strong> bao gồm:
-    </p>
-    <ul>
-      <li><strong>Nẹp Inox 304 cao cấp</strong>: nẹp T/U/V, nẹp góc, len tường, chống trơn cầu thang.</li>
-      <li><strong>Nẹp nhôm trang trí</strong>: T/V/U/La, chống trơn, viền LED; nhẹ, đa màu.</li>
-      <li><strong>Nẹp đồng thau</strong>: T/U/V/La; sang trọng, phù hợp công trình cao cấp.</li>
-      <li><strong>Nẹp nhựa PVC</strong>: bảo vệ góc, ron âm, kết thúc gạch, khe giãn nở, trần thạch cao.</li>
-      <li><strong>Nẹp LED & đặc biệt</strong>: kết hợp chiếu sáng và trang trí tinh tế.</li>
-    </ul>
+  <h2 id="ung-dung">🏗️ Ứng dụng trong hàng trăm công trình tại Đà Nẵng</h2>
+  <p>
+    LuxInox là đối tác cung cấp nẹp cho nhiều dự án nổi bật: căn hộ cao cấp ven sông Hàn, biệt thự Nam Hòa Xuân, showroom đá ốp lát, spa và nhà hàng khu vực trung tâm thành phố. Các dòng nẹp inox, nẹp nhôm trang trí giúp hoàn thiện nội thất tinh tế, tăng tính thẩm mỹ và đồng bộ cho không gian.
+  </p>
 
-    <h2 id="experience">II. Kinh nghiệm và năng lực vượt trội</h2>
-    <p>Trên 10 năm hoạt động, phục vụ hàng ngàn khách hàng & đối tác toàn quốc:</p>
-    <ul>
-      <li><strong>Kinh nghiệm</strong>: dự án nhà ở, văn phòng, khách sạn, TTTM.</li>
-      <li><strong>Phân phối toàn quốc</strong>: kho tại Hà Nội, TP.HCM, Đà Nẵng — giao nhanh.</li>
-      <li><strong>Đội ngũ kỹ thuật</strong>: tư vấn giải pháp tối ưu, hỗ trợ tận tâm.</li>
-      <li><strong>Đối tác uy tín</strong>: hợp tác cùng nhà thầu & kiến trúc sư hàng đầu.</li>
-    </ul>
+  <h2  id="danh-gia">💬 Đánh giá khách hàng</h2>
+  <blockquote>
+    “Nẹp nhôm và inox ở LuxInox đúng chuẩn kỹ thuật, dễ thi công, giá lại hợp lý. Giao hàng nhanh, có tư vấn bản vẽ tận tình” – Anh Tùng (thầu hoàn thiện nội thất tại Hải Châu, Đà Nẵng).
+  </blockquote>
 
-    <h2 id="commitments">III. Cam kết chất lượng từ Nẹp Luxinox</h2>
-    <p>Chúng tôi luôn ưu tiên chất lượng sản phẩm và trải nghiệm dịch vụ:</p>
-    <ul>
-      <li><strong>Chuẩn quốc tế</strong>: quy trình sản xuất & kiểm tra nghiêm ngặt.</li>
-      <li><strong>Dịch vụ chuyên nghiệp</strong>: tư vấn nhanh, bảo hành rõ ràng, giá hợp lý.</li>
-      <li><strong>Chính sách đổi trả</strong>: linh hoạt, bảo vệ quyền lợi khách hàng.</li>
-      <li><strong>Xanh & bền vững</strong>: công nghệ giảm thiểu chất thải & khí thải.</li>
-    </ul>
+  <h2 id="lien-he">📲 Kết nối với tổng kho LuxInox</h2>
+  <ul>
+    <li>🌐 Website: <a href="https://nepdanang.vn" target="_blank" rel="noopener noreferrer">nepdanang.vn</a></li>
+    <li>📞 Zalo / Hotline: <a href="tel:0935128542">0935.128.542</a></li>
+    <li>📍 Fanpage: <a href="https://facebook.com/nepinoxtaidanang" target="_blank" rel="noopener noreferrer">facebook.com/nepinoxtaidanang</a></li>
+    <li>🏠 Tổng kho tại Đà Nẵng – giao hàng toàn quốc</li>
+  </ul>
 
-    <p>
-      Hãy <Link to="/lien-he">liên hệ với Nẹp Luxinox</Link> để được tư vấn miễn phí và nhận 
-      giải pháp tối ưu cho mọi nhu cầu về <strong>nẹp trang trí nội thất & xây dựng</strong>.
-    </p>
-  </div>
+  <p><strong>🎯 Lời kết:</strong> LuxInox cam kết đồng hành cùng các công trình nội thất bằng sản phẩm chất lượng và dịch vụ chuyên nghiệp nhất.</p>
+</div>
+
 ));
 
 const About = () => {
-  useEffect(() => {
-    document.title = "Về Chúng Tôi - Luxinox Chuyên Gia Nẹp Kim Loại Kiến Trúc Sang Trọng";
-    const metas = [
-      ["description","Nẹp Luxinox - Nhà cung cấp nẹp trang trí, nẹp inox, nẹp nhôm, nẹp đồng chất lượng cao, giá cạnh tranh, giao hàng toàn quốc."],
-      ["keywords","nẹp trang trí, nẹp inox, nẹp nhôm, nẹp đồng, nẹp Luxinox, vật liệu xây dựng"]
-    ];
-    const created = [];
-    metas.forEach(([name, content]) => {
-      const tag = document.createElement("meta");
-      tag.name = name; tag.content = content;
-      document.head.appendChild(tag); created.push(tag);
-    });
-    return () => { created.forEach(t => document.head.removeChild(t)); };
-  }, []);
-
   return (
+    <>
+    <Helmet>
+        <title>Về Chúng Tôi - Luxinox Chuyên Gia Nẹp Kim Loại Kiến Trúc Sang Trọng</title>
+        <meta
+          name="description"
+          content="Nẹp Luxinox - Nhà cung cấp nẹp trang trí, nẹp inox, nẹp nhôm, nẹp đồng chất lượng cao, giá cạnh tranh, giao hàng toàn quốc."
+        />
+        <meta
+          name="keywords"
+          content="nẹp trang trí, nẹp inox, nẹp nhôm, nẹp đồng, nẹp Luxinox, vật liệu xây dựng"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nepdanang.vn/gioi-thieu" />
+
+        {/* Mạng xã hội (Facebook, Zalo,...) */}
+        <meta property="og:title" content="Về Chúng Tôi - Nẹp Luxinox" />
+        <meta property="og:description" content="Luxinox cung cấp nẹp kim loại trang trí cao cấp trên toàn quốc." />
+        <meta property="og:image" content="https://nepdanang.vn/images/logo-webseonep.png" />
+        <meta property="og:url" content="https://nepdanang.vn/gioi-thieu" />
+      </Helmet>
+      <script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://nepdanang.vn"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Giới thiệu",
+      "item": "https://nepdanang.vn/gioi-thieu"
+    }
+  ]
+}
+`}
+</script>
     <div className="about-page">
       <TopBar />
       <Header />
@@ -135,21 +161,26 @@ const About = () => {
       <BreadcrumbsNav links={[{ label: "Trang chủ", href: "/" }, { label: "Giới thiệu" }]} />
 
       <div className="about-container">
+
         <main className="about-main" role="main">
           <AboutContent />
         </main>
 
-        <aside className="about-sidebar" aria-label="Thanh bên phải">
-          {/* MỤC LỤC */}
-          <TableOfContents />
-          {/* BÀI VIẾT GẦN ĐÂY */}
-          <RecentPostsSidebar />
-        </aside>
+<aside className="about-sidebar" aria-label="Thanh bên phải">
+  {/* MỤC LỤC */}
+  <div className="toc-desktop">
+    <TableOfContents />
+  </div>
+
+  {/* BÀI VIẾT GẦN ĐÂY */}
+  <RecentPostsSidebar />
+</aside>
       </div>
 
       <Footer />
       <ContactButtons />
     </div>
+    </>
   );
 };
 

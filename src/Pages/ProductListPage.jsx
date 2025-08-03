@@ -12,7 +12,7 @@ import ProductSidebar from "../Components/ProductSidebar";
 import { Link } from "react-router-dom";
 import Loading from "../Components/global/loading";
 import "../styles/ProductListPage.css";
-
+import { Helmet } from "react-helmet";
 const ProductListPage = () => {
   const { parentSlug, slug } = useParams();
   const [categoryTree, setCategoryTree] = useState([]);
@@ -26,10 +26,8 @@ const ProductListPage = () => {
         const res = await axios.get(`${API_URL}/categories/tree-with-products`);
         const tree = res.data;
         setCategoryTree(tree);
-
         const cleanParentSlug = decodeURIComponent(parentSlug?.trim() || "");
         const cleanSlug = decodeURIComponent(slug?.trim() || "");
-
         const parent = tree.find(cat => cat.slug?.trim() === cleanParentSlug);
         if (!parent || !Array.isArray(parent.children)) {
           console.warn("⚠️ Không tìm thấy parent hoặc không có children.");
@@ -58,6 +56,46 @@ const ProductListPage = () => {
 
   return (
     <>
+    <Helmet>
+  <title>{matchedChild.name} | {matchedParent.name} | Nẹp Đà Nẵng</title>
+  <meta
+    name="description"
+    content={`Khám phá danh mục ${matchedChild.name} thuộc nhóm ${matchedParent.name}. Sản phẩm chất lượng cao, mẫu mã đa dạng từ Nẹp Đà Nẵng.`}
+  />
+  <meta property="og:title" content={`${matchedChild.name} | ${matchedParent.name} | Nẹp Đà Nẵng`} />
+  <meta property="og:description" content={`Khám phá danh mục ${matchedChild.name} thuộc nhóm ${matchedParent.name}.`} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://nepdanang.vn/san-pham/${matchedParent.slug}/${matchedChild.slug}`} />
+</Helmet>
+<script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://nepdanang.vn/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Sản phẩm",
+      "item": "https://nepdanang.vn/san-pham"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "${matchedChild.name}",
+      "item": "https://nepdanang.vn/san-pham/${matchedParent.slug}/${matchedChild.slug}"
+    }
+  ]
+}
+`}
+</script>
+
       <TopBar />
       <Header />
       <Navbar />
@@ -81,15 +119,14 @@ const ProductListPage = () => {
         <main className="custom-product-content">
        <div className="custom-section-title-wrapper">
   <div className="line" />
-  <h2 className="custom-section-title">
+  <h1 className="custom-section-title">
     GIỚI THIỆU VỀ {matchedChild.name.toUpperCase()}
-  </h2>
+  </h1>
   <div className="line" />
 </div>
 
 {matchedChild.description && (
-  <p className="custom-category-description">
-    {matchedChild.description}
+  <p    dangerouslySetInnerHTML={{ __html: matchedChild.description}} className="custom-category-description">
   </p>
 )}
     <div className="custom-section-title-wrapper">

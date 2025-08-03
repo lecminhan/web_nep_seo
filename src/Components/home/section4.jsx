@@ -50,14 +50,14 @@ const Section4 = () => {
         width: "100%",
         bgcolor: "#fefefe",
         py: { xs: 5, md: 8 },
-        px: 2
+
       }}
     >
       <Box
         sx={{
           maxWidth: "1200px",
           mx: "auto",
-          px: { xs: 2, md: 3 }
+          p:{xs:"0px 20px"}
         }}
       >
         <Typography
@@ -77,17 +77,21 @@ const Section4 = () => {
           DANH MỤC SẢN PHẨM
         </Typography>
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "repeat(2, 1fr)",
-              sm: "repeat(3, 1fr)",
-              md: "repeat(6, 1fr)"
-            },
-            gap: { xs: 2.5, md: 3 }
-          }}
-        >
+       <Box
+  sx={{
+    display: "grid",
+    gridTemplateColumns: {
+      xs: "repeat(2, 1fr)",  // 2 cột trên mobile
+      sm: "repeat(3, 1fr)",
+      md: "repeat(6, 1fr)"
+    },
+    gap: { xs: 2.5, md: 3 },
+    justifyItems: {
+      xs: "center", // ✅ card căn giữa trong cột
+      sm: "stretch"
+    },
+  }}
+>
           {productCategories.map((cat, index) => (
             <Link
               key={index}

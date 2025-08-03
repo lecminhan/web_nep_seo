@@ -144,3 +144,26 @@ html {
   object-fit: cover;
   border: 1px solid #eee;
 }
+
+/* Mặc định: chỉ hiện ở desktop */
+.toc-mobile {
+  display: none;
+}
+.toc-desktop {
+  display: block;
+}
+@media (max-width: 768px) {
+  .toc-mobile {
+    display: block;
+
+  }
+ .about-content h2{
+        color: #d82a1b;
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0;
+}
+  .toc-desktop {
+    display: none;
+  }
+}

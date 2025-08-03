@@ -63,6 +63,11 @@
   margin-top: 20px;
 }
 /* Card */
+@media (max-width: 768px) {
+  h1{
+    font-size: 15px;
+  }
+}
 
 .card {
   background: #fff;
@@ -166,4 +171,70 @@
 .product-title{
   margin: 0;
   color: #444;
+}
+
+/* CSS hiện tại bạn đã có bên trên... */
+@media (max-width: 768px) {
+  .product-category-container {
+    flex-direction: column;
+    padding: 0 12px; /* giảm padding cho gọn */
+  }
+
+  .sidebar {
+    display: none; /* Ẩn sidebar trên mobile */
+  }
+
+  .main-content {
+    width: 100%;
+    min-width: unset;
+    padding: 0;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cột trên mobile nhỏ */
+    gap: 12px; /* giảm gap cho gọn */
+  }
+
+  .card {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #eee;
+    box-shadow: none; /* giảm hiệu ứng cho nhẹ */
+  }
+
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .card-title {
+    font-size: 16px; /* thu nhỏ tiêu đề */
+    margin: 8px 0;
+  }
+
+  .card-description,
+  .card-meta {
+    display: none; /* Ẩn mô tả và meta trên mobile */
+  }
+
+  .section-title-red-wrapper {
+    margin: 16px 0;
+  }
+
+  .main-content .section-title-red {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr; /* 1 cột khi rất nhỏ */
+  }
+
+  .main-content .section-title-red {
+    font-size: 16px; /* nhỏ nữa khi rất nhỏ */
+    padding: 6px 10px;
+  }
 }

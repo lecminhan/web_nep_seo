@@ -5,19 +5,20 @@ import { FaCalendarAlt } from "react-icons/fa";
 const RecentPostsSidebar = () => {
   const [posts, setPosts] = useState([]);
   const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     fetch(`${API_URL}/news`)
       .then((res) => res.json())
-      .then((data) => setPosts(data))
+      .then((data) => {
+        // Sắp xếp theo published_at mới nhất
+        const sorted = data.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+        setPosts(sorted.slice(0, 5)); // Lấy 5 bài mới nhất
+      })
       .catch((err) => console.error("Lỗi tải tin tức:", err));
   }, []);
 
   return (
-    <aside
-      style={{
-        flex: 3,
-      }}
-    >
+    <aside style={{ flex: 3 }}>
       <h3
         style={{
           fontSize: 18,
@@ -31,17 +32,17 @@ const RecentPostsSidebar = () => {
         BÀI VIẾT GẦN ĐÂY
       </h3>
 
-      {posts.slice(0, 5).map((post) => (
+      {posts.map((post) => (
         <div
           key={post.id}
           style={{
-           display: "flex",
-  alignItems: "center",
-  gap: 10, // giữ khoảng cách đều
-  marginBottom: 15,
-  overflow: "hidden",       // ✅ để chữ không tràn
-  textOverflow: "ellipsis", // ✅ để chữ dài quá sẽ bị "..."
-  borderBottom: "1px solid #eee"
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            marginBottom: 15,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            borderBottom: "1px solid #eee",
           }}
         >
           <a href={`/tin-tuc/${post.slug}`}>

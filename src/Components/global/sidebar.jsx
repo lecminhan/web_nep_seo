@@ -93,7 +93,7 @@ const Sidebar = ({ open, onClose }) => {
                 setOpenDropdown(!openDropdown);
               }}
             >
-              <ListItemText primary="Ngành hàng" primaryTypographyProps={{ fontSize }} />
+              <ListItemText primary="Sản phẩm" primaryTypographyProps={{ fontSize }} />
               {openDropdown ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
 
@@ -133,10 +133,10 @@ const Sidebar = ({ open, onClose }) => {
             CÔNG TY TNHH LUXINOX
           </Typography>
           <Typography sx={{ mt: 0.5, fontSize: '0.8rem' }}>
-            Hotline: <b style={{ color: '#e53935' }}>0968 181 807</b>
+            Hotline: <b style={{ color: '#e53935' }}>0935.128.542</b>
           </Typography>
           <Typography sx={{ fontSize: '0.8rem' }}>
-            Email: <b style={{ color: '#1e88e5' }}>lecminhan@gmail.com</b>
+            Email: <b style={{ color: '#1e88e5' }}>Lecongmanhtruong273@gmail.com</b>
           </Typography>
         </Box>
       </Box>

@@ -1,5 +1,19 @@
 User-agent: *
+# Không cho phép bot truy cập các file cấu hình và thư mục nhạy cảm
 Disallow: /.env
+Disallow: /admin/
+Disallow: /backend/
+Disallow: /private/
+Disallow: /server/
+Disallow: /*.log$
+Disallow: /*.json$
+Disallow: /*.php$
+Disallow: /*.env$
+Disallow: /node_modules/
+Disallow: /api/  # Nếu bạn không muốn bot index API endpoints
+
+# Cho phép thu thập dữ liệu toàn bộ trang web bình thường
 Allow: /
 
+# Khai báo sitemap XML
 Sitemap: https://nepdanang.vn/sitemap.xml

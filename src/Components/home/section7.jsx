@@ -14,25 +14,25 @@ const feedbacks = [
     name: "Anh Khanh - KS Đông Nam",
     rating: 5,
     comment:
-      "Sản phẩm của các bạn rất tuyệt vời, khách hàng đến Khách sạn đều khen ngợi.",
+      "Nẹp nhôm – nẹp inox giá cả hợp lý, mẫu mã đa dạng, rất đáng để sử dụng cho các dự án cao cấp.",
   },
   {
     name: "Anh Hoàng - ĐL Thái Bình",
     rating: 5,
     comment:
-      "Nguyễn Phát hỗ trợ về mẫu mã, tư vấn tốt, khách hàng yên tâm sử dụng.",
+      "LuxInox hỗ trợ chọn mẫu và giao hàng rất nhanh, nẹp về tới nơi là thi công được ngay, không phải chỉnh sửa gì.",
   },
   {
     name: "Chú Hải - KĐT Gamuda",
     rating: 5,
     comment:
-      "Sản phẩm chất lượng cao, màu sắc đẹp. Tôi rất hài lòng và sẽ giới thiệu thêm.",
+      "Chất lượng nẹp inox cực kỳ tốt, bề mặt đẹp, cắt chuẩn, làm nổi bật toàn bộ đường ron sàn và mép gạch.",
   },
   {
     name: "Anh Tuấn - Showroom Hà Nội",
     rating: 5,
     comment:
-      "Giá cả hợp lý, mẫu mã đa dạng, rất đáng để đầu tư cho các dự án cao cấp.",
+      "Hàng có sẵn nhiều kích thước và màu sắc, đóng gói cẩn thận, dễ kiểm tra và bàn giao cho thợ thi công.",
   },
 ];
 
@@ -68,7 +68,7 @@ const Section7 = () => {
           borderBottom: "2px solid #d32f2f",
           display: "inline-block",
           mb: 3,
-          fontSize: { xs: 16, sm: 18,md:33.6 },
+          fontSize: 25,
           ml: { xs: 2, md: 4 },
         }}
       >

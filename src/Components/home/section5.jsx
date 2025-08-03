@@ -182,7 +182,7 @@ const Section5 = () => {
                       <Box display="flex" alignItems="center" gap={0.5} mb={0.5}>
                         <Rating name={`rating-${idx}`} size={getRatingSize()} value={4} readOnly />
                         <Typography variant="caption" fontSize={getFontSize(10)} color="inherit">
-                          0 đánh giá
+                          83 đánh giá
                         </Typography>
                       </Box>
                       <Typography fontSize={getFontSize(12)} fontWeight={600}>

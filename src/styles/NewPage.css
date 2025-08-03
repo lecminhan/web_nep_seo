@@ -1,0 +1,68 @@
+/* Chỉ áp dụng khi màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 0 16px;
+    padding-top: 20px;
+  }
+
+  section {
+    border-right: none !important;
+  }
+
+  .about-sidebar,
+  .recent-posts-sidebar {
+    order: -1; /* Đưa lên đầu */
+    margin-bottom: 20px;
+    width: 100% !important;
+  }
+
+  .recent-posts-sidebar .sidebar-section {
+    margin-bottom: 16px;
+  }
+
+  article {
+    flex-direction: column;
+    gap: 12px !important;
+  }
+
+  article img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  article h2 {
+    font-size: 16px !important;
+  }
+
+  article p {
+    font-size: 14px !important;
+  }
+   .news-item {
+    /* Giữ flex row để ảnh bên trái, chữ bên phải */
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .news-item img {
+    width: 80px; /* ảnh nhỏ lại */
+    height: auto;
+  }
+
+  .news-item-content h2,
+  .news-item-content h3,
+  .news-item-content p {
+    font-size: 14px; /* chữ nhỏ lại */
+    line-height: 1.4;
+  }
+
+  .news-item-content .meta {
+    font-size: 12px;
+  }
+
+  .news-item-content .read-more {
+    font-size: 13px;
+  }
+}

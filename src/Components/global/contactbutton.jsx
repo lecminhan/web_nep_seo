@@ -16,21 +16,21 @@ const ContactButtons = () => {
       {[
         {
           label: "Liên hệ ngay",
-          href: "https://www.facebook.com/messages/t/104626430946805",
+          href: "https://m.me/nepinoxtaidanang",
           bgColor: "#1877f2",
           icon: "https://static.vecteezy.com/system/resources/previews/022/488/748/original/3d-render-meta-chat-messenger-facebook-messenger-icon-bubble-isolated-on-transparent-background-free-png.png",
           alt: "Messenger Icon",
         },
         {
           label: "Liên hệ ngay",
-          href: "tel:+84968181807",
+          href: "tel:+84935128542",
           bgColor: "#4caf50",
           icon: "https://cdn-icons-png.flaticon.com/512/724/724664.png",
           alt: "Phone Icon",
         },
         {
           label: "Liên hệ ngay",
-          href: "https://zalo.me/0935128542",
+          href: "https://zalo.me/0935.128.542",
           bgColor: "#0068ff",
           icon: "/images/iconbutton/zalo.png",
           alt: "Zalo Icon",
@@ -77,29 +77,29 @@ const ContactButtons = () => {
             sx={{ p: 0 }}
           >
             <Box
-              component="img"
-              src={item.icon}
-              alt={item.alt}
-              sx={{
-                width: { xs: 28, sm: 40 },
-                height: { xs: 28, sm: 40 },
-                animation: "pulse 1.6s infinite",
-                "@keyframes pulse": {
-                  "0%": {
-                    transform: "scale(1)",
-                    opacity: 1,
-                  },
-                  "50%": {
-                    transform: "scale(1.15)",
-                    opacity: 0.75,
-                  },
-                  "100%": {
-                    transform: "scale(1)",
-                    opacity: 1,
-                  },
-                },
-              }}
-            />
+  component="img"
+  src={item.icon}
+  alt={item.alt}
+  sx={{
+    width: 40,
+    height: 40,
+    animation: "pulse 1.6s infinite",
+    "@keyframes pulse": {
+      "0%": {
+        transform: "scale(1)",
+        opacity: 1,
+      },
+      "50%": {
+        transform: "scale(1.15)",
+        opacity: 0.75,
+      },
+      "100%": {
+        transform: "scale(1)",
+        opacity: 1,
+      },
+    },
+  }}
+/>
           </IconButton>
         </Box>
       ))}

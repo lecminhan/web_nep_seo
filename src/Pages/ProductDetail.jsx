@@ -12,6 +12,7 @@ import ContactButtons from "../Components/global/contactbutton";
 import ProductSidebar from "../Components/ProductSidebar";
 import Loading from "../Components/global/loading";
 import "../styles/ProductDetail.css";
+import { Helmet } from "react-helmet";
 
 const ProductDetail = () => {
   const { parentSlug, childSlug, productSlug } = useParams();
@@ -85,6 +86,59 @@ const ProductDetail = () => {
   if (!product)
     return (
       <>
+  <Helmet>
+    <title>{product.name} | Luxinox</title>
+    <meta name="description" content={product.description?.slice(0, 160) || "Sản phẩm chi tiết từ Luxinox"} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={product.name} />
+    <meta property="og:description" content={product.description?.slice(0, 160)} />
+    <meta property="og:type" content="product" />
+    <meta property="og:image" content={`https://nepdanang.vn/images/sanpham/${product.image_url}`} />
+    <meta property="og:url" content={`https://nepdanang.vn/san-pham/${parentCat?.slug}/${childCat?.slug}/${product.slug}`} />
+    <link rel="canonical" href={`https://nepdanang.vn/san-pham/${parentCat?.slug}/${childCat?.slug}/${product.slug}`} />
+    <meta name="keywords" content={`${product.name}, ${parentCat?.name}, ${childCat?.name}, nẹp trang trí`} />
+  </Helmet>
+
+  {/* JSON-LD Breadcrumb structured data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Trang chủ",
+          item: "https://nepdanang.vn"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Sản phẩm",
+          item: "https://nepdanang.vn/san-pham"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: parentCat?.name,
+          item: `https://nepdanang.vn/san-pham/${parentCat?.slug}`
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: childCat?.name,
+          item: `https://nepdanang.vn/san-pham/${parentCat?.slug}/${childCat?.slug}`
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: product.name,
+          item: `https://nepdanang.vn/san-pham/${parentCat?.slug}/${childCat?.slug}/${product.slug}`
+        }
+      ]
+    })}
+  </script>
+
         <TopBar />
         <Header />
         <Navbar />

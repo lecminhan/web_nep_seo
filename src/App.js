@@ -13,6 +13,7 @@ import ProductDetail from './Pages/ProductDetail';
 import ProjectPage from './Pages/Project';
 import ContactPage from './Pages/contact';
 import ProjectDetail from './Pages/ProjectDetail';
+import SearchPage from './Pages/Search';
 function App() {
   return (
     <HelmetProvider>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/du-an" element={<ProjectPage/>} />
         <Route path="/du-an/:slug" element={<ProjectDetail/>} />
         <Route path="/lien-he" element={<ContactPage/>} />
+          <Route path="/tim-kiem" element={<SearchPage />} />
         </Routes>
     </Router>
     </HelmetProvider>

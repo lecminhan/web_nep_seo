@@ -42,13 +42,45 @@ const ProjectDetail = () => {
   return (
     <>
       <Helmet>
-        <title>{project.title} | Dự án</title>
-        <meta name="description" content={project.description?.slice(0, 150)} />
-        <meta property="og:title" content={project.title} />
-        <meta property="og:description" content={project.description?.slice(0, 150)} />
-        <meta property="og:image" content={project.image_url} />
-      </Helmet>
+  <title>{project.title} | Dự án</title>
+  <meta name="description" content={project.description?.slice(0, 150)} />
+  <meta property="og:title" content={project.title} />
+  <meta property="og:description" content={project.description?.slice(0, 150)} />
+  <meta property="og:image" content={project.image_url} />
+  <meta property="og:url" content={`https://nepdanang.vn/projects/${slug}`} />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={project.title} />
+  <meta name="twitter:description" content={project.description?.slice(0, 150)} />
+  <meta name="twitter:image" content={project.image_url} />
+</Helmet>
 
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Trang chủ",
+        "item": "https://nepdanang.vn"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Dự án",
+        "item": "https://nepdanang.vn/du-an"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": project.title,
+        "item": `https://nepdanang.vn/du-an/${slug}`
+      }
+    ]
+  })}
+</script>
       <TopBar />
       <Header />
       <Navbar />
@@ -63,23 +95,39 @@ const ProjectDetail = () => {
 
       <main className="project-detail-container">
         <article className="project-detail-content">
-          <h1 className="project-title">{project.title}</h1>
+        <h1 className="project-title">{project.title}</h1>
 
-          <img
-            src={project.image_url}
-            alt={project.title}
-            className="project-main-image"
-            loading="lazy"
-          />
+<figure className="project-main-figure" style={{ margin: "20px 0" }}>
+  <img
+    src={project.image_url}
+    alt={project.title}
+    className="project-main-image"
+    loading="lazy"
+    style={{ width: "100%", borderRadius: 8, objectFit: "cover" }}
+  />
+  <figcaption
+    className="project-image-caption"
+    style={{
+      textAlign: "center",
+      fontSize: "14px",
+      color: "#666",
+      marginTop: 8,
+      fontStyle: "italic",
+    }}
+  >
+    {project.title}
+  </figcaption>
+</figure>
 
-          {project.description && (
-            <p className="project-description">{project.description}</p>
-          )}
+{project.description && (
+  <p className="project-description">{project.description}</p>
+)}
 
-          <div
-            className="project-html-content"
-            dangerouslySetInnerHTML={{ __html: project.content }}
-          />
+<div
+  className="project-html-content"
+  dangerouslySetInnerHTML={{ __html: project.content }}
+/>
+
         </article>
 
         <aside className="project-sidebar">

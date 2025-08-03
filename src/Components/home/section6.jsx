@@ -79,7 +79,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 >
               <Box
                 component="img"
-                src={news.image}
+                 src={news.image_url}
                 alt={news.title}
                 sx={{
                   width: "100%",

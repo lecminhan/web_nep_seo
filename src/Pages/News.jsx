@@ -8,10 +8,16 @@ import BreadcrumbsNav from "../Components/global/BreadcrumbsNav";
 import Footer from "../Components/global/footer";
 import ContactButtons from "../Components/global/contactbutton";
 import RecentPostsSidebar from "../Components/RecentPostsSidebar";
+import "../styles/NewPage.css";
+import { Helmet } from "react-helmet-async";
 
 const NewsPage = () => {
   const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 8;
+
   const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     fetch(`${API_URL}/news`)
       .then((res) => res.json())
@@ -19,10 +25,56 @@ const NewsPage = () => {
       .catch((err) => console.error("Lỗi tải tin tức:", err));
   }, []);
 
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const recentPosts = posts.slice(0, 5);
 
   return (
     <>
+    <Helmet>
+  <title>Tin Tức - Nẹp Trang Trí Nội Thất Luxinox Đà Nẵng</title>
+  <meta
+    name="description"
+    content="Cập nhật tin tức mới nhất về sản phẩm nẹp inox, nẹp nhôm trang trí nội thất và các xu hướng thiết kế hiện đại cùng Luxinox Đà Nẵng."
+  />
+  <meta
+    name="keywords"
+    content="tin tức nẹp, tin tức vật liệu xây dựng, nẹp inox, nẹp nhôm, nẹp trang trí nội thất, tin tức Luxinox"
+  />
+  <meta property="og:title" content="Tin Tức - Luxinox Đà Nẵng" />
+  <meta
+    property="og:description"
+    content="Tin tức mới nhất từ Nẹp Luxinox - Xu hướng thiết kế, ứng dụng nẹp trong nội thất hiện đại. Cập nhật thường xuyên!"
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.nepdanang.vn/tin-tuc" />
+  <meta property="og:image" content="https://www.nepdanang.vn/images/og-image.jpg" />
+  <link rel="canonical" href="https://www.nepdanang.vn/tin-tuc" />
+</Helmet>
+<script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": "https://www.nepdanang.vn"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tin tức",
+      "item": "https://www.nepdanang.vn/tin-tuc"
+    }
+  ]
+}
+`}
+</script>
       <TopBar />
       <Header />
       <Navbar />
@@ -43,8 +95,8 @@ const NewsPage = () => {
         }}
       >
         {/* Left: Main Content */}
-        <section style={{ flex: 9,borderRight:  "1px solid #eee" }}>
-          {posts.map((post) => (
+        <section style={{ flex: 9, borderRight: "1px solid #eee" }}>
+          {currentPosts.map((post) => (
             <article
               key={post.id}
               style={{
@@ -106,6 +158,28 @@ const NewsPage = () => {
               </div>
             </article>
           ))}
+
+          {/* Pagination */}
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 20, gap: 10 }}>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                style={{
+                  padding: "6px 12px",
+                  border: "1px solid #ccc",
+                  backgroundColor: page === currentPage ? "#d71920" : "#fff",
+                  color: page === currentPage ? "#fff" : "#444",
+                  cursor: "pointer",
+                  borderRadius: 4,
+                  fontWeight: "bold",
+                  marginBottom: "15px"
+                }}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
         </section>
 
         {/* Right: Sidebar as Component */}

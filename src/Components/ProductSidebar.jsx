@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import RecentPostsSidebar from "./RecentPostsSidebar";
 
 const ProductSidebar = ({ categories, parentSlug }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (isMobile) {
+    // Ẩn hoàn toàn sidebar trên mobile (có thể đổi sang toggle sau)
+    return null;
+  }
+
   return (
     <aside
       style={{
@@ -14,6 +27,7 @@ const ProductSidebar = ({ categories, parentSlug }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        padding: "0 10px",
       }}
       aria-label="Sidebar ngành hàng"
     >
@@ -50,7 +64,8 @@ const ProductSidebar = ({ categories, parentSlug }) => {
                   display: "block",
                   padding: "12px 14px",
                   border: "1px solid #ddd",
-                  backgroundColor: cat.slug === parentSlug ? "#f9f9f9" : "#fff",
+                  backgroundColor:
+                    cat.slug === parentSlug ? "#f9f9f9" : "#fff",
                   color: "#222",
                   textDecoration: "none",
                   fontSize: 15,
@@ -76,7 +91,11 @@ const ProductSidebar = ({ categories, parentSlug }) => {
       {/* Bài viết gần đây */}
       <section
         aria-label="Bài viết gần đây"
-        style={{ marginTop: 40, borderTop: "1px solid #eee", paddingTop: 20 }}
+        style={{
+          marginTop: 40,
+          borderTop: "1px solid #eee",
+          paddingTop: 20,
+        }}
       >
         <RecentPostsSidebar />
       </section>
