@@ -32,7 +32,26 @@ const HomePage = () => {
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://nepdanang.vn/" />
 </Helmet>
-
+{`
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Tổng Kho Nẹp Nhôm - Nẹp Inox Trang Trí Nội Thất Đà Nẵng | LuxInox",
+  "url": "https://nepdanang.vn",
+  "sameAs": [
+    "https://www.youtube.com/@nepdanang",
+    "https://www.pinterest.com/nepinoxdanang/",
+    "https://www.facebook.com/nepinoxtaidanang/",
+    "https://medium.com/@nepdanang",
+    "https://www.tumblr.com/blog/nepinoxdanang",
+    "https://nepinoxdanang.tumblr.com/",
+    "https://www.linkedin.com/in/nep-nhom-nep-inox-da-nang/",
+    "https://www.google.com/maps?cid=0x31421b670ee39983:0x89a8de14e5f106c1",
+    "https://zalo.me/0935128542"
+  ]
+}
+</script>`}
     <Box
     
       sx={{
