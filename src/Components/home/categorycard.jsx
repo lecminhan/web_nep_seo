@@ -4,7 +4,7 @@ import {
   Typography,
   Button,
   useMediaQuery,
-  useTheme
+  useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const CategoryCard = ({ title, label, image, to }) => {
       to={to}
       sx={{
         display: "block",
-        width: "100%",         // ✅ Full width để parent (Grid) kiểm soát
+        width: "100%", // ✅ Full width để parent (Grid) kiểm soát
         height: "100%",
         borderRadius: 2,
         overflow: "hidden",

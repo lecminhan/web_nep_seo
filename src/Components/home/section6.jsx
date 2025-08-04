@@ -2,16 +2,25 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import PersonIcon from "@mui/icons-material/Person";
 
 const Section6 = () => {
   const [newsList, setNewsList] = useState([]);
-const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     axios
       .get(`${API_URL}/news/random`)
       .then((res) => setNewsList(res.data))
       .catch((err) => console.error("Lỗi khi tải tin tức:", err));
   }, []);
+  const formatDate = (isoString) => {
+    const d = new Date(isoString);
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
   return (
     <Box
@@ -54,55 +63,44 @@ const API_URL = process.env.REACT_APP_API_URL;
           }}
         >
           {newsList.map((news, idx) => (
-          <Box
-  key={idx}
-  component={Link}
-  to={`/tin-tuc/${news.slug}`}
-  title={news.title}
-  sx={{
-    flex: "0 0 auto",
-    width: { xs: "46%", sm: "23%", md: "100%" },
-    minWidth: { xs: 130, sm: 185, md: 260 },
-    maxWidth: { xs: 200, sm: 240 },
-    textDecoration: "none",
-    color: "inherit",
-    borderRadius: 2,
-    overflow: "hidden",
-    boxShadow: 1,
-    scrollSnapAlign: "start",
-    transition: "transform 0.2s",
-    "&:hover": {
-      transform: "translateY(-3px)",
-      boxShadow: 3,
-    },
-  }}
->
+            <Box
+              key={idx}
+              component={Link}
+              to={`/tin-tuc/${news.slug}`}
+              title={news.title}
+              sx={{
+                flex: "0 0 auto",
+                width: { xs: "46%", sm: "23%", md: "100%" },
+                minWidth: { xs: 130, sm: 185, md: 260 },
+                maxWidth: { xs: 200, sm: 240 },
+                textDecoration: "none",
+                color: "inherit",
+                borderRadius: 2,
+                overflow: "hidden",
+                boxShadow: 1,
+                scrollSnapAlign: "start",
+                transition: "transform 0.2s",
+                "&:hover": {
+                  transform: "translateY(-3px)",
+                  boxShadow: 3,
+                },
+              }}
+            >
               <Box
                 component="img"
-                 src={news.image_url}
+                src={news.image_url}
                 alt={news.title}
                 sx={{
                   width: "100%",
-                  height: {
-                    xs: 100,
-                    sm: 130,
-                    md: 140,
-                  },
+                  height: { xs: 100, sm: 130, md: 140 },
                   objectFit: "cover",
                 }}
               />
+
               <Box sx={{ px: 1, py: 1 }}>
-                <Typography
-                  variant="caption"
-                  color="text.secondary"
-                  sx={{ fontSize: { xs: 10, sm: 11 } }}
-                >
-                  {news.date}
-                </Typography>
                 <Typography
                   fontWeight={600}
                   sx={{
-                    mt: 0.5,
                     fontSize: { xs: 11, sm: 13 },
                     lineHeight: 1.3,
                     display: "-webkit-box",
@@ -128,6 +126,22 @@ const API_URL = process.env.REACT_APP_API_URL;
                 >
                   {news.desc}
                 </Typography>
+
+                {/* Hàng icon ngày tạo + người đăng */}
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  mt={1}
+                  sx={{ fontSize: { xs: 10, sm: 11 }, color: "text.secondary" }}
+                >
+                  <CalendarMonthIcon sx={{ fontSize: 14, mr: 0.3 }} />
+                  <Typography variant="caption" sx={{ mr: 1 }}>
+                    {formatDate(news.published_at)}
+                  </Typography>
+
+                  <PersonIcon sx={{ fontSize: 14, mr: 0.3 }} />
+                  <Typography variant="caption">admin</Typography>
+                </Box>
               </Box>
             </Box>
           ))}

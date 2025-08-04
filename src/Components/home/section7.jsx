@@ -47,7 +47,10 @@ const Section7 = () => {
 
     const scrollAmount = 320;
     const interval = setInterval(() => {
-      if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+      if (
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth
+      ) {
         container.scrollTo({ left: 0, behavior: "smooth" });
       } else {
         container.scrollBy({ left: scrollAmount, behavior: "smooth" });

@@ -19,4 +19,3 @@ export const fetchChildCategories = async (parentId) => {
   if (!res.ok) throw new Error("Lỗi khi tải danh mục con");
   return res.json();
 };
-

@@ -4,15 +4,15 @@
 }
 
 .homepage-banner-container {
-  max-width: 1300px;      /* không tràn ra ngoài */
-  margin: 0 auto;         /* căn giữa container */
-  padding: 0 24px;        /* padding 2 bên đều nhau */
+  max-width: 1300px; /* không tràn ra ngoài */
+  margin: 0 auto; /* căn giữa container */
+  padding: 0 24px; /* padding 2 bên đều nhau */
   box-sizing: border-box; /* tránh overflow khi có padding */
 }
 
 .homepage-banner-image {
   display: block;
-  width: 100%;            /* full trong container */
+  width: 100%; /* full trong container */
   height: auto;
   max-height: 460px;
   object-fit: cover;

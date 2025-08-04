@@ -1,7 +1,8 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import '../styles/SearchPage.css';
+import "../styles/SearchPage.css";
+import ScrollToTopButton from "../Components/global/ScrollToTopButton";
 
 import TopBar from "../Components/global/topbar";
 import Header from "../Components/global/header";
@@ -11,37 +12,37 @@ import ContactButtons from "../Components/global/contactbutton";
 import Loading from "../Components/global/loading";
 
 const SearchPage = () => {
- const location = useLocation();
+  const location = useLocation();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const API_URL = process.env.REACT_APP_API_URL;
 
   // Cập nhật query mỗi khi location.search thay đổi
- // Cập nhật query mỗi khi location.search thay đổi
-useEffect(() => {
-  const q = new URLSearchParams(location.search).get("q") || "";
-  setQuery(q);
-  setLoading(true);        // 👈 Bắt đầu loading ngay khi query từ URL thay đổi
-  setResults([]);          // 👈 Xoá kết quả cũ để tránh hiển thị sai
-}, [location.search]);
+  // Cập nhật query mỗi khi location.search thay đổi
+  useEffect(() => {
+    const q = new URLSearchParams(location.search).get("q") || "";
+    setQuery(q);
+    setLoading(true); // 👈 Bắt đầu loading ngay khi query từ URL thay đổi
+    setResults([]); // 👈 Xoá kết quả cũ để tránh hiển thị sai
+  }, [location.search]);
 
-// Gọi API mỗi khi query thay đổi
-useEffect(() => {
-  if (query) {
-    axios
-      .get(`${API_URL}/search?q=${encodeURIComponent(query)}`)
-      .then((res) => setResults(res.data))
-      .catch((err) => {
-        console.error(err);
-        setResults([]); // 👈 Trong trường hợp lỗi cũng phải reset kết quả
-      })
-      .finally(() => setLoading(false));
-  } else {
-    setResults([]);
-    setLoading(false);     // 👈 Trường hợp query rỗng, tắt loading luôn
-  }
-}, [query]);
+  // Gọi API mỗi khi query thay đổi
+  useEffect(() => {
+    if (query) {
+      axios
+        .get(`${API_URL}/search?q=${encodeURIComponent(query)}`)
+        .then((res) => setResults(res.data))
+        .catch((err) => {
+          console.error(err);
+          setResults([]); // 👈 Trong trường hợp lỗi cũng phải reset kết quả
+        })
+        .finally(() => setLoading(false));
+    } else {
+      setResults([]);
+      setLoading(false); // 👈 Trường hợp query rỗng, tắt loading luôn
+    }
+  }, [query]);
 
   return (
     <>
@@ -78,7 +79,9 @@ useEffect(() => {
                     />
                     <div className="card-info">
                       <h3 className="product-title">{product.name}</h3>
-                      <div className="stars" aria-hidden="true">★★★★★</div>
+                      <div className="stars" aria-hidden="true">
+                        ★★★★★
+                      </div>
                     </div>
                   </Link>
                   <Link
@@ -95,29 +98,29 @@ useEffect(() => {
               ))}
             </div>
           ) : (
-           <p
-  style={{
-    padding: "20px",
-    color: "#d71920",
-    textAlign: "center",
-    fontSize: "18px",
-    fontWeight: "bold",
-    backgroundColor: "#fff0f0",
-    border: "1px solid #f5c2c7",
-    borderRadius: "8px",
-    margin: "20px auto",
-    maxWidth: "500px"
-  }}
->
-  Không tìm thấy sản phẩm nào.
-</p>
+            <p
+              style={{
+                padding: "20px",
+                color: "#d71920",
+                textAlign: "center",
+                fontSize: "18px",
+                fontWeight: "bold",
+                backgroundColor: "#fff0f0",
+                border: "1px solid #f5c2c7",
+                borderRadius: "8px",
+                margin: "20px auto",
+                maxWidth: "500px",
+              }}
+            >
+              Không tìm thấy sản phẩm nào.
+            </p>
           )}
         </main>
-
       </div>
 
       <Footer />
       <ContactButtons />
+      <ScrollToTopButton />
     </>
   );
 };

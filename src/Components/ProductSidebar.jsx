@@ -64,8 +64,7 @@ const ProductSidebar = ({ categories, parentSlug }) => {
                   display: "block",
                   padding: "12px 14px",
                   border: "1px solid #ddd",
-                  backgroundColor:
-                    cat.slug === parentSlug ? "#f9f9f9" : "#fff",
+                  backgroundColor: cat.slug === parentSlug ? "#f9f9f9" : "#fff",
                   color: "#222",
                   textDecoration: "none",
                   fontSize: 15,

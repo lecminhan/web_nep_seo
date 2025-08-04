@@ -1,11 +1,11 @@
-:root{
+:root {
   --pd-sidebar-width: 260px;
   --pd-gap: 24px;
 }
 
 /* ==== Layout chung ==== */
 .pd-wrapper {
-  max-width: 1200px;        /* có thể tăng 1440px nếu muốn */
+  max-width: 1200px; /* có thể tăng 1440px nếu muốn */
   margin: 0 auto;
   padding: 24px 16px;
   padding-top: 0;
@@ -13,20 +13,20 @@
 }
 
 /* Tầng 1: Sidebar | Khối phải */
-.pd-row{
+.pd-row {
   display: flex;
-  align-items: flex-start;   /* để chiều cao độc lập */
+  align-items: flex-start; /* để chiều cao độc lập */
   gap: var(--pd-gap);
 }
 
 /* Sidebar cố định rộng */
-.pd-left{
+.pd-left {
   width: var(--pd-sidebar-width);
   flex: 0 0 var(--pd-sidebar-width);
 }
 
 /* Khối phải chiếm phần còn lại, xếp dọc: (Top) + (Longdesc) */
-.pd-right{
+.pd-right {
   flex: 1 1 auto;
   min-width: 0;
   display: flex;
@@ -35,7 +35,7 @@
 }
 
 /* Tầng 2 (trong khối phải): Media | Info */
-.pd-top{
+.pd-top {
   display: flex;
   gap: var(--pd-gap);
   align-items: flex-start; /* mỗi khối cao độc lập */
@@ -43,24 +43,25 @@
 
 /* Media và Info: 2 cột bằng nhau */
 .pd-media,
-.pd-info{
+.pd-info {
   flex: 1 1 0;
   min-width: 0;
 }
 
 /* ==== Media ==== */
-.pd-image-main{
+.pd-image-main {
   width: 100%;
   border: 1px solid #eee;
   border-radius: 12px;
   background: #fff;
   object-fit: contain;
-   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              box-shadow 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s ease;
   transform-origin: center center;
   will-change: transform;
 }
-.pd-image-placeholder{
+.pd-image-placeholder {
   width: 100%;
   height: 320px;
   background: #f5f5f5;
@@ -71,7 +72,9 @@
   justify-content: center;
   color: #777;
 }
-.pd-zoomable{ cursor: zoom-in; }
+.pd-zoomable {
+  cursor: zoom-in;
+}
 
 /* ==== Info ==== */
 .pd-title {
@@ -94,17 +97,25 @@
   border-radius: 12px;
   border: 1px solid #eee;
 }
-.pd-desc-head { font-weight: 700; margin-bottom: 8px; }
-.pd-desc-body { font-size: 15px; line-height: 1.7; color: #333; text-align: justify; }
+.pd-desc-head {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.pd-desc-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+}
 
 /* ==== Long description (nằm dưới Media+Info, không đụng sidebar) ==== */
-.pd-longdesc-container{
+.pd-longdesc-container {
   background: #fff;
   border-radius: 12px;
   padding: 18px;
 }
 
-.pd-longdesc-heading{
+.pd-longdesc-heading {
   font-size: 22px;
   margin: 0 0 18px;
   color: #222;
@@ -114,14 +125,16 @@
   padding-bottom: 10px;
 }
 
-.pd-longdesc-block{ margin-bottom: 22px; }
-.pd-longdesc-title{
+.pd-longdesc-block {
+  margin-bottom: 22px;
+}
+.pd-longdesc-title {
   font-size: 18px;
   font-weight: 700;
   color: #444;
   margin: 0 0 10px;
 }
-.pd-longdesc-text{
+.pd-longdesc-text {
   font-size: 16px;
   line-height: 1.7;
   text-align: justify;
@@ -129,15 +142,16 @@
   color: #333;
   margin: 8px 0 0;
 }
-.pd-longdesc-image{
+.pd-longdesc-image {
   width: 100%;
   height: auto;
   border-radius: 8px;
   border: 1px solid #eee;
   background: #fff;
   margin: 8px 0 10px;
-   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              box-shadow 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s ease;
   transform-origin: center center;
   will-change: transform;
 }
@@ -146,7 +160,7 @@
 .pd-lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,7 +171,7 @@
   max-height: 90vh;
   object-fit: contain;
   border-radius: 6px;
-  box-shadow: 0 10px 40px rgba(0,0,0,.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 .pd-lightbox-close {
   position: fixed;
@@ -176,8 +190,11 @@
 
 /* ==== Misc ==== */
 .pd-loading,
-.pd-notfound{ padding: 24px; font-size: 16px; }
-.pd-link-back{
+.pd-notfound {
+  padding: 24px;
+  font-size: 16px;
+}
+.pd-link-back {
   display: inline-block;
   margin-top: 8px;
   color: #d71920;
@@ -185,20 +202,22 @@
 }
 
 /* ==== Responsive ==== */
-@media (max-width: 1024px){
-  .pd-row{
-    flex-direction: column;     /* Sidebar, rồi tới khối phải */
+@media (max-width: 1024px) {
+  .pd-row {
+    flex-direction: column; /* Sidebar, rồi tới khối phải */
   }
-  .pd-left{
+  .pd-left {
     width: 100%;
     flex: 0 0 auto;
   }
-  .pd-top{
-    flex-direction: column;     /* Media trên, Info dưới */
+  .pd-top {
+    flex-direction: column; /* Media trên, Info dưới */
   }
 }
-@media (max-width: 768px){
-  .pd-title{ font-size: 20px; }
+@media (max-width: 768px) {
+  .pd-title {
+    font-size: 20px;
+  }
 }
 /* ===== Vạch dọc ngăn cách Sidebar | Khối phải ===== */
 .pd-row {
@@ -216,7 +235,7 @@
   background: #e6e6e6; /* màu vạch */
   z-index: 0;
 }
-.pd-badge{
+.pd-badge {
   margin: 15px 0;
 }
 /* Ẩn vạch khi xuống mobile (các cột xếp dọc) */

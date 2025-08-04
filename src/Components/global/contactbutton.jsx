@@ -77,29 +77,29 @@ const ContactButtons = () => {
             sx={{ p: 0 }}
           >
             <Box
-  component="img"
-  src={item.icon}
-  alt={item.alt}
-  sx={{
-    width: 40,
-    height: 40,
-    animation: "pulse 1.6s infinite",
-    "@keyframes pulse": {
-      "0%": {
-        transform: "scale(1)",
-        opacity: 1,
-      },
-      "50%": {
-        transform: "scale(1.15)",
-        opacity: 0.75,
-      },
-      "100%": {
-        transform: "scale(1)",
-        opacity: 1,
-      },
-    },
-  }}
-/>
+              component="img"
+              src={item.icon}
+              alt={item.alt}
+              sx={{
+                width: 40,
+                height: 40,
+                animation: "pulse 1.6s infinite",
+                "@keyframes pulse": {
+                  "0%": {
+                    transform: "scale(1)",
+                    opacity: 1,
+                  },
+                  "50%": {
+                    transform: "scale(1.15)",
+                    opacity: 0.75,
+                  },
+                  "100%": {
+                    transform: "scale(1)",
+                    opacity: 1,
+                  },
+                },
+              }}
+            />
           </IconButton>
         </Box>
       ))}

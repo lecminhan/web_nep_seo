@@ -70,7 +70,7 @@ const BreadcrumbsNav = ({ links }) => {
             >
               {item.label}
             </Typography>
-          )
+          ),
         )}
       </Breadcrumbs>
     </Box>

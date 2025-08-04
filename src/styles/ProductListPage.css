@@ -103,7 +103,7 @@
   font-size: 16px;
   font-weight: 600;
   color: #333;
-  margin:0
+  margin: 0;
 }
 
 .custom-product-rating {
@@ -163,7 +163,7 @@
 .custom-category-description {
   text-align: justify;
   line-height: 1.8; /* hoặc 1.6–2 tùy bạn muốn giãn dòng bao nhiêu */
-  font-size: 16px;  /* tùy chỉnh nếu cần */
+  font-size: 16px; /* tùy chỉnh nếu cần */
   margin-top: 20px;
   color: #333; /* màu chữ nhẹ nhàng, dễ đọc */
 }
@@ -200,10 +200,14 @@
   /* Lưới sản phẩm */
   .custom-product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
   }
-
+  .custom-product-card.placeholder {
+    all: unset; /* Xóa toàn bộ style kế thừa */
+    display: block;
+    visibility: hidden; /* Vẫn chiếm chỗ, nhưng không hiển thị gì cả */
+  }
   /* Card sản phẩm */
   .custom-product-card {
     width: 100%;

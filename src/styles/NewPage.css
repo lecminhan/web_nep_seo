@@ -38,7 +38,7 @@
   article p {
     font-size: 14px !important;
   }
-   .news-item {
+  .news-item {
     /* Giữ flex row để ảnh bên trái, chữ bên phải */
     flex-direction: row;
     align-items: flex-start;

@@ -54,7 +54,9 @@ const Header = () => {
 
   return (
     <header>
-      <Box sx={{ width: "100%", bgcolor: "#fff", borderBottom: "1px solid #ddd" }}>
+      <Box
+        sx={{ width: "100%", bgcolor: "#fff", borderBottom: "1px solid #ddd" }}
+      >
         <Box
           component="nav"
           sx={{
@@ -71,18 +73,31 @@ const Header = () => {
         >
           {isMobile ? (
             <>
-              <IconButton onClick={handleMenuClick} aria-label="Mở menu điều hướng">
+              <IconButton
+                onClick={handleMenuClick}
+                aria-label="Mở menu điều hướng"
+              >
                 <MenuIcon />
               </IconButton>
 
-              <Box sx={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
+              >
                 <RouterLink to="/" aria-label="Trang chủ Luxinox">
                   <Box sx={{ height: 50 }}>
                     <img
                       src="/images/logo.png"
                       alt="Logo Luxinox nẹp"
                       title="Trang chủ Luxinox nẹp"
-                      style={{ height: "100%", objectFit: "contain", width: "auto" }}
+                      style={{
+                        height: "100%",
+                        objectFit: "contain",
+                        width: "auto",
+                      }}
                     />
                   </Box>
                 </RouterLink>
@@ -95,7 +110,10 @@ const Header = () => {
           ) : (
             <>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <IconButton onClick={handleMenuClick} aria-label="Mở menu điều hướng">
+                <IconButton
+                  onClick={handleMenuClick}
+                  aria-label="Mở menu điều hướng"
+                >
                   <MenuIcon />
                 </IconButton>
                 <RouterLink to="/" aria-label="Trang chủ Luxinox">
@@ -104,7 +122,11 @@ const Header = () => {
                       src="/images/logo.png"
                       alt="Logo Luxinox nẹp"
                       title="Trang chủ Luxinox nẹp"
-                      style={{ height: "100%", objectFit: "contain", width: "auto" }}
+                      style={{
+                        height: "100%",
+                        objectFit: "contain",
+                        width: "auto",
+                      }}
                     />
                   </Box>
                 </RouterLink>
@@ -188,31 +210,29 @@ const Header = () => {
                     <FaLinkedin />
                   </IconButton>
                 </Tooltip>
-                        {/* Liên kết điều hướng – ẩn ở mobile */}
-                        <Box
-                          component="nav"
-                          aria-label="Liên kết người dùng"
-                          sx={{
-                            display: { xs: 'none', sm: 'flex' },
-                            gap: 2,
-                          }}
-                        >
-                          {/* ✅ Thay nội dung tại đây */}
-                        <IconButton
-                  component="a"
-                  href="https://www.facebook.com/nepinoxtaidanang"
-                  target="_blank"
-                  rel="noopener"
-                  size="small"
-                  title="Facebook Page"
-                  sx={{ color: '#333' }}
+                {/* Liên kết điều hướng – ẩn ở mobile */}
+                <Box
+                  component="nav"
+                  aria-label="Liên kết người dùng"
+                  sx={{
+                    display: { xs: "none", sm: "flex" },
+                    gap: 2,
+                  }}
                 >
-                  <FaFacebookF />
-                </IconButton>
-                
-                        </Box>
+                  {/* ✅ Thay nội dung tại đây */}
+                  <IconButton
+                    component="a"
+                    href="https://www.facebook.com/nepinoxtaidanang"
+                    target="_blank"
+                    rel="noopener"
+                    size="small"
+                    title="Facebook Page"
+                    sx={{ color: "#333" }}
+                  >
+                    <FaFacebookF />
+                  </IconButton>
+                </Box>
               </Box>
-              
             </>
           )}
         </Box>

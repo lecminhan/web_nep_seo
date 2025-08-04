@@ -6,6 +6,7 @@ import BreadcrumbsNav from "../Components/global/BreadcrumbsNav";
 import Footer from "../Components/global/footer";
 import ContactButtons from "../Components/global/contactbutton";
 import { Helmet } from "react-helmet-async";
+import ScrollToTopButton from "../Components/global/ScrollToTopButton";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -111,11 +112,9 @@ const ContactPage = () => {
       <Header />
       <Navbar />
       <BreadcrumbsNav
-        links={[
-          { label: "Trang chủ", href: "/" },
-          { label: "Liên hệ" },
-        ]}
+        links={[{ label: "Trang chủ", href: "/" }, { label: "Liên hệ" }]}
       />
+      <ScrollToTopButton />
 
       <main
         style={{
@@ -197,7 +196,9 @@ const ContactPage = () => {
               <p style={{ color: "green" }}>Gửi thành công!</p>
             )}
             {status === "error" && (
-              <p style={{ color: "red" }}>Đã có lỗi xảy ra. Vui lòng thử lại.</p>
+              <p style={{ color: "red" }}>
+                Đã có lỗi xảy ra. Vui lòng thử lại.
+              </p>
             )}
           </form>
         </section>
@@ -216,8 +217,8 @@ const ContactPage = () => {
               <strong>Email:</strong> Lecongmanhtruong273@gmail.com
             </li>
             <li>
-              <strong>Địa chỉ:</strong> 209 Cao Hồng Lãnh, Hoà Quý, Ngũ Hành Sơn,
-              Đà Nẵng
+              <strong>Địa chỉ:</strong> 209 Cao Hồng Lãnh, Hoà Quý, Ngũ Hành
+              Sơn, Đà Nẵng
             </li>
           </ul>
 

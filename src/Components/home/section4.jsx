@@ -1,44 +1,38 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Card,
-  CardMedia,
-  CardContent
-} from "@mui/material";
+import { Box, Typography, Card, CardMedia, CardContent } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const productCategories = [
   {
     title: "Nẹp Inox 304",
     image: "/images/anh-intro/nep-inox-304-v-5-bac-xuoc.jpg",
-    to: "/san-pham/nep-inox-304"
+    to: "/san-pham/nep-inox-304",
   },
   {
     title: "Nẹp Nhôm Cao cấp",
     image: "/images/anh-intro/nep-v-nhom-v-10-bac-guong.jpg",
-    to: "/san-pham/nep-nhom-cao-cap"
+    to: "/san-pham/nep-nhom-cao-cap",
   },
   {
     title: "Nẹp Đồng Thau",
     image: "/images/anh-intro/nep-la-dong-dong-thau.jpg",
-    to: "/san-pham/nep-dong-thau"
+    to: "/san-pham/nep-dong-thau",
   },
   {
     title: "Nẹp Nhựa PVC",
     image: "/images/anh-intro/chi-ngat-nuoc-pvc.jpg",
-    to: "/san-pham/nep-nhua-pvc"
+    to: "/san-pham/nep-nhua-pvc",
   },
   {
     title: "Nẹp Xây Dựng",
     image: "/images/anh-intro/nep-xay-dung.jpg",
-    to: "/san-pham/nep-xay-dung"
+    to: "/san-pham/nep-xay-dung",
   },
   {
     title: "Nẹp Đèn LED",
     image: "/images/anh-intro/nep-led-chong-tron-inox-cao-cap.jpg",
-    to: "/san-pham/nep-den-led"
-  }
+    to: "/san-pham/nep-den-led",
+  },
 ];
 
 const Section4 = () => {
@@ -50,14 +44,13 @@ const Section4 = () => {
         width: "100%",
         bgcolor: "#fefefe",
         py: { xs: 5, md: 8 },
-
       }}
     >
       <Box
         sx={{
           maxWidth: "1200px",
           mx: "auto",
-          p:{xs:"0px 20px"}
+          p: { xs: "0px 20px" },
         }}
       >
         <Typography
@@ -77,21 +70,21 @@ const Section4 = () => {
           DANH MỤC SẢN PHẨM
         </Typography>
 
-       <Box
-  sx={{
-    display: "grid",
-    gridTemplateColumns: {
-      xs: "repeat(2, 1fr)",  // 2 cột trên mobile
-      sm: "repeat(3, 1fr)",
-      md: "repeat(6, 1fr)"
-    },
-    gap: { xs: 2.5, md: 3 },
-    justifyItems: {
-      xs: "center", // ✅ card căn giữa trong cột
-      sm: "stretch"
-    },
-  }}
->
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "repeat(2, 1fr)", // 2 cột trên mobile
+              sm: "repeat(3, 1fr)",
+              md: "repeat(6, 1fr)",
+            },
+            gap: { xs: 2.5, md: 3 },
+            justifyItems: {
+              xs: "center", // ✅ card căn giữa trong cột
+              sm: "stretch",
+            },
+          }}
+        >
           {productCategories.map((cat, index) => (
             <Link
               key={index}
@@ -111,8 +104,8 @@ const Section4 = () => {
                   transition: "all 0.25s ease",
                   "&:hover": {
                     transform: "translateY(-6px)",
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.1)"
-                  }
+                    boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
+                  },
                 }}
               >
                 <CardMedia
@@ -122,7 +115,7 @@ const Section4 = () => {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover"
+                    objectFit: "cover",
                   }}
                 />
                 <CardContent
@@ -135,7 +128,7 @@ const Section4 = () => {
                     color: "#fff",
                     width: "100%",
                     py: 1,
-                    px: 1.5
+                    px: 1.5,
                   }}
                 >
                   <Typography
@@ -146,7 +139,9 @@ const Section4 = () => {
                     {cat.title}
                   </Typography>
                   <Typography variant="caption">
-                  <div className="custom-product-rating" aria-hidden="true">★★★★★</div>
+                    <div className="custom-product-rating" aria-hidden="true">
+                      ★★★★★
+                    </div>
                     <div> Xem tất cả</div>
                   </Typography>
                 </CardContent>

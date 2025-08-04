@@ -11,7 +11,9 @@ const RecentPostsSidebar = () => {
       .then((res) => res.json())
       .then((data) => {
         // Sắp xếp theo published_at mới nhất
-        const sorted = data.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+        const sorted = data.sort(
+          (a, b) => new Date(b.published_at) - new Date(a.published_at),
+        );
         setPosts(sorted.slice(0, 5)); // Lấy 5 bài mới nhất
       })
       .catch((err) => console.error("Lỗi tải tin tức:", err));

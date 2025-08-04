@@ -24,12 +24,13 @@ const IntroSlider = () => {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2500,
+    autoplay: false, // ❌ Tắt tự động trượt
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
+    arrows: true, // ✅ Hiện mũi tên điều hướng
+    pauseOnHover: true, // ✅ Tạm dừng khi hover (không bắt buộc nếu autoplay = false)
+    swipeToSlide: true, // ✅ Cho phép kéo/trượt bằng chuột hoặc cảm ứng
   };
 
   return (
@@ -45,7 +46,18 @@ const IntroSlider = () => {
         pb: { xs: 2, md: 5 },
       }}
     >
-      <Box sx={{ width: "100%", mx: "auto" }}>
+      <Box
+        sx={{
+          width: "100%",
+          mx: "auto",
+          "& .slick-arrow": {
+            display: "none !important",
+          },
+          "&:hover .slick-arrow": {
+            display: "block !important",
+          },
+        }}
+      >
         <Slider {...settings}>
           {sliderImages.map((item, index) => (
             <Box
@@ -54,10 +66,10 @@ const IntroSlider = () => {
                 position: "relative",
                 width: "100%",
                 height: {
-                  xs: "180px",    // mobile
-                  sm: "280px",    // tablet
-                  md: "400px",    // small desktop / iPad Pro
-                  lg: "460px",    // large desktop
+                  xs: "180px", // mobile
+                  sm: "280px", // tablet
+                  md: "400px", // small desktop / iPad Pro
+                  lg: "460px", // large desktop
                 },
               }}
             >
@@ -74,7 +86,6 @@ const IntroSlider = () => {
               />
 
               {/* Caption */}
-             
             </Box>
           ))}
         </Slider>

@@ -18,12 +18,12 @@ html {
 }
 
 .about-main {
-  flex: 3;              /* 3/4 */
+  flex: 3; /* 3/4 */
   min-width: 260px;
 }
 
 .about-sidebar {
-  flex: 1;              /* 1/4 */
+  flex: 1; /* 1/4 */
   min-width: 240px;
 }
 
@@ -61,7 +61,9 @@ html {
   color: #d82a1b;
   text-decoration: none;
 }
-.about-content a:hover { text-decoration: underline; }
+.about-content a:hover {
+  text-decoration: underline;
+}
 
 .about-image {
   width: 100%;
@@ -93,7 +95,9 @@ html {
   padding: 0;
 }
 
-.toc-item + .toc-item { margin-top: 8px; }
+.toc-item + .toc-item {
+  margin-top: 8px;
+}
 
 .toc a {
   display: inline-block;
@@ -109,8 +113,12 @@ html {
 
 /* Responsive */
 @media (max-width: 992px) {
-  .about-content h1 { font-size: 2rem; }
-  .about-content h2 { font-size: 1.35rem; }
+  .about-content h1 {
+    font-size: 2rem;
+  }
+  .about-content h2 {
+    font-size: 1.35rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -123,7 +131,9 @@ html {
     flex: 1 1 100%;
     min-width: auto;
   }
-  .toc { margin-bottom: 18px; }
+  .toc {
+    margin-bottom: 18px;
+  }
 }
 .product-list {
   margin-left: 20px;
@@ -155,14 +165,13 @@ html {
 @media (max-width: 768px) {
   .toc-mobile {
     display: block;
-
   }
- .about-content h2{
-        color: #d82a1b;
+  .about-content h2 {
+    color: #d82a1b;
     font-size: 1.45rem;
     font-weight: 700;
     margin: 0;
-}
+  }
   .toc-desktop {
     display: none;
   }

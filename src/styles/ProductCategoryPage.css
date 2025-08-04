@@ -64,7 +64,7 @@
 }
 /* Card */
 @media (max-width: 768px) {
-  h1{
+  h1 {
     font-size: 15px;
   }
 }
@@ -74,7 +74,9 @@
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   text-align: center;
   padding-bottom: 16px;
   position: relative;
@@ -100,7 +102,6 @@
 .card-info {
   padding: 12px 16px 0;
 }
-
 
 /* CTA Button */
 
@@ -168,7 +169,7 @@
   font-size: 16px;
   letter-spacing: 1px;
 }
-.product-title{
+.product-title {
   margin: 0;
   color: #444;
 }
