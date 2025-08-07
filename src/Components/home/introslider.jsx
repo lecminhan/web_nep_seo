@@ -4,17 +4,17 @@ import { Box, Typography } from "@mui/material";
 
 const sliderImages = [
   {
-    src: "./images/slide1.jpg",
+    src: "./images/slide1.webp",
     alt: "Nẹp trang trí cao cấp",
     caption: "Chất lượng và thẩm mỹ",
   },
   {
-    src: "./images/slide2.jpg",
+    src: "./images/slide2.webp",
     alt: "Ứng dụng nội thất sang trọng",
     caption: "Giải pháp hoàn thiện không gian",
   },
   {
-    src: "./images/slide3.jpg",
+    src: "./images/slide3.webp",
     alt: "Thi công uy tín",
     caption: "Dự án lớn - giá tốt",
   },

@@ -80,7 +80,7 @@ const AboutContent = memo(() => (
       nghiệp.
     </p>
     <img
-      src="/images/slide1.jpg"
+      src="/images/slide4.webp"
       alt="Showroom Nẹp Luxinox trưng bày các mẫu nẹp trang trí nội thất cao cấp"
       className="about-image"
       loading="lazy"

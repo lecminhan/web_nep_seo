@@ -26,9 +26,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "obfuscate": "javascript-obfuscator build/static/js --output build/static/js-obfuscated --compact true --control-flow-flattening true",
+    "build-obfuscate": "npm run build && npm run obfuscate"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +52,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "cross-env": "^10.0.0",
+    "javascript-obfuscator": "^4.1.1",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.10"

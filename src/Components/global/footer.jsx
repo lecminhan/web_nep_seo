@@ -14,7 +14,6 @@ import {
   FaLinkedinIn,
   FaFacebookF,
 } from "react-icons/fa";
-
 const Footer = () => {
   useEffect(() => {
     if (!window.FB) {
@@ -230,32 +229,16 @@ const Footer = () => {
 
           {/* Cột 4: Facebook fanpage */}
           <Grid item xs={12} md={3}>
-            <Box sx={{ mt: 2 }}>
-              <Box
-                className="fb-page"
-                data-href="https://www.facebook.com/nepinoxtaidanang"
-                data-tabs="timeline"
-                data-width="320px"
-                data-height="280"
-                data-small-header="false"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="true"
-              >
-                <blockquote
-                  cite="https://www.facebook.com/nepinoxtaidanang"
-                  className="fb-xfbml-parse-ignore"
-                >
-                  <a
-                    href="https://www.facebook.com/nepinoxtaidanang"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Nẹp Nhôm Luxinox
-                  </a>
-                </blockquote>
-              </Box>
-            </Box>
+   <iframe
+  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnepinoxtaidanang&tabs=timeline&width=320&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+  width="320"
+  height="280"
+  style={{ border: "none", overflow: "hidden" }}
+  scrolling="no"
+  frameBorder="0"
+  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+/>
+
           </Grid>
         </Grid>
       </Box>

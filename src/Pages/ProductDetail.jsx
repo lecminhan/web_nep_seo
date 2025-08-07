@@ -302,8 +302,12 @@ const ProductDetail = () => {
                   )}
 
                   {block.paragraph_text && (
-                    <p className="pd-longdesc-text">{block.paragraph_text}</p>
-                  )}
+                    <p
+  className="pd-longdesc-text"
+  dangerouslySetInnerHTML={{ __html: block.paragraph_text }}
+></p>
+
+                                    )}
                 </article>
               ))}
             </section>

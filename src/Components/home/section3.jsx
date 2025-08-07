@@ -4,26 +4,23 @@ import CategoryCard from "./categorycard";
 
 const Section3 = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // < 600px
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "lg")); // 600px – 1199px
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "lg"));
 
-  // SEO-optimized category data with proper alt texts
   const categoryImages = [
     {
       title: "Nẹp Nhôm Cao Cấp",
       label: "Chuẩn quốc tế",
       image: "/images/nep-t-nhom-t10-bac-guong.jpg",
       to: "/san-pham/nep-nhom-cao-cap",
-      description:
-        "Nẹp nhôm chất lượng cao ứng dụng trong xây dựng và nội thất",
+      description: "Nẹp nhôm chất lượng cao ứng dụng trong xây dựng và nội thất",
     },
     {
       title: "Nẹp Inox 304",
       label: "Sáng bóng, bền đẹp",
       image: "/images/nep-inox-304-v-5-bac-xuoc.jpg",
       to: "/san-pham/nep-inox-304",
-      description:
-        "Nẹp inox 304 chống gỉ, độ bền cao cho công trình chất lượng",
+      description: "Nẹp inox 304 chống gỉ, độ bền cao cho công trình chất lượng",
     },
     {
       title: "Nẹp Đồng Thau",
@@ -40,12 +37,9 @@ const Section3 = () => {
       aria-label="Danh mục sản phẩm nổi bật"
       sx={{
         width: "100%",
-        maxWidth: "1200px",
-        mx: "auto",
         bgcolor: "#fff",
       }}
     >
-      {/* SEO-optimized heading */}
       <Typography
         variant="h2"
         component="h2"
@@ -60,7 +54,6 @@ const Section3 = () => {
         Sản Phẩm Nẹp Chất Lượng Cao
       </Typography>
 
-      {/* SEO description */}
       <Typography
         variant="body1"
         component="p"
@@ -85,7 +78,7 @@ const Section3 = () => {
         sx={{
           px: 0,
           "& .MuiGrid-item": {
-            borderRadius: "5px", // Consistent 5px border radius
+            borderRadius: "5px",
           },
         }}
       >
@@ -106,16 +99,17 @@ const Section3 = () => {
                 maxWidth: isMobile
                   ? "90%"
                   : isTablet
-                    ? "clamp(160px, 30vw, 240px)"
-                    : 360,
+                  ? "clamp(160px, 30vw, 240px)"
+                  : 360,
                 aspectRatio: "1 / 1",
-                borderRadius: "5px", // 5px border radius
-                overflow: "hidden", // Ensure child elements respect border radius
+                borderRadius: "5px",
+                overflow: "hidden",
               }}
             >
               <CategoryCard
                 {...item}
-                sx={{ borderRadius: "5px" }} // Ensure card respects border radius
+                imgProps={{ loading: "lazy" }} // ✅ lazy-load ảnh
+                sx={{ borderRadius: "5px" }}
               />
             </Box>
           </Grid>

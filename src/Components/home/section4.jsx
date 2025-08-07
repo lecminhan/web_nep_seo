@@ -5,33 +5,33 @@ import { Link } from "react-router-dom";
 const productCategories = [
   {
     title: "Nẹp Inox 304",
-    image: "/images/anh-intro/nep-inox-304-v-5-bac-xuoc.jpg",
-    to: "/san-pham/nep-inox-304",
+    image: "/images/sanpham/nep-inox-304-v-5-bac-xuoc.webp",
+    to: "/sanpham/nep-inox-304",
   },
   {
     title: "Nẹp Nhôm Cao cấp",
-    image: "/images/anh-intro/nep-v-nhom-v-10-bac-guong.jpg",
-    to: "/san-pham/nep-nhom-cao-cap",
+    image: "/images/sanpham/nep-v-nhom-v-10-bac-guong.webp",
+    to: "/sanpham/nep-nhom-cao-cap",
   },
   {
     title: "Nẹp Đồng Thau",
-    image: "/images/anh-intro/nep-la-dong-dong-thau.jpg",
-    to: "/san-pham/nep-dong-thau",
+    image: "/images/sanpham/nep-la-dong-dong-thau.webp",
+    to: "/sanpham/nep-dong-thau",
   },
   {
     title: "Nẹp Nhựa PVC",
-    image: "/images/anh-intro/chi-ngat-nuoc-pvc.jpg",
-    to: "/san-pham/nep-nhua-pvc",
+    image: "/images/sanpham/chi-ngat-nuoc-pvc.webp",
+    to: "/sanpham/nep-nhua-pvc",
   },
   {
     title: "Nẹp Xây Dựng",
     image: "/images/anh-intro/nep-xay-dung.jpg",
-    to: "/san-pham/nep-xay-dung",
+    to: "/sanpham/nep-xay-dung",
   },
   {
     title: "Nẹp Đèn LED",
-    image: "/images/anh-intro/nep-led-chong-tron-inox-cao-cap.jpg",
-    to: "/san-pham/nep-den-led",
+    image: "/images/sanpham/nep-led-chong-tron-inox-cao-cap.webp",
+    to: "/sanpham/nep-den-led",
   },
 ];
 
@@ -112,6 +112,7 @@ const Section4 = () => {
                   component="img"
                   src={cat.image}
                   alt={`Danh mục ${cat.title}`}
+                  loading="lazy"
                   sx={{
                     width: "100%",
                     height: "100%",

@@ -75,7 +75,7 @@ const HomePage = () => {
         >
           <Box
             component="img"
-            src="/images/tong-kho-nep-nhom-nep-inox-trang-tri-noi-that-da-nang-nepdanang.vn-4.jpg"
+            src="/images/slide4.webp"
             alt="Giới thiệu Nẹp Luxinox"
             sx={{
               width: "100%",

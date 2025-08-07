@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/loading.css"; // Tạo file CSS riêng cho component
+import "../style/loading.css"; // Tạo file CSS riêng cho component
 
 const Loading = () => {
   return (
